@@ -1,0 +1,85 @@
+<div class="loginBg">
+    <div style="position: fixed; top: 200px; left: 80px;">
+      <div class="clearfix">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">登录体验账号信息</h3>
+            </div>
+            <div class="panel-body">
+               <p>root(可以发布表报): root/1234</p>
+               <p>test(普通用户): test/1234</p>
+            </div>
+          </div>
+      </div>
+    </div>
+    <div class="clearfix" ng-if="error" style="margin-top: 36px;">
+      <div class="col-md-4 col-md-offset-4" >
+        <div class="alert alert-danger">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+          <strong ng-bind="error"></strong>
+        </div>
+      </div>
+    </div>
+    <img src="./img/logo_big.png" ng-if="isLogin" class="center-block logo">&#x9;&#x9;
+
+  <form role="form" ng-if="isLogin" ng-submit="login()" w5c-form-validate="vm.validateOptions" novalidate name="Login" class="form center-block w5c-form">
+    <div class="clearfix">
+      <div class="form-group clearfix">
+        <label for="name" class="col-md-4 labelControl">用户名:<i class="fa fa-user-md"></i></label>&#x9;&#x9;&#x9;&#x9;
+        <div class="col-md-8">
+          <input id="name" type="text" placeholder="输入用户名登录" name="username" ng-model="user.username" ng-minlength="2" ng-maxlength="10" required class="form-control">
+        </div>
+      </div>&#x9;&#x9;&#x9;
+      <div class="form-group clearfix">
+        <label for="password" class="col-md-4 labelControl">密码:<i class="fa fa-unlock-alt"></i></label>&#x9;&#x9;&#x9;&#x9;
+        <div class="col-md-8">
+          <input id="password" type="password" placeholder="输入密码" name="password" ng-model="user.password" required class="form-control">
+        </div>
+      </div>&#x9;&#x9;&#x9;
+      <div class="clearfix">
+        <label class="col-md-offset-4">
+          <input type="checkbox"> 记住登录状态
+        </label>&#x9;&#x9;&#x9;&#x9;<a ng-click="showSignup()" class="pull-right">注册新的账号</a>
+      </div>&#x9;&#x9;&#x9;
+      <div class="clearfix">
+        <input type="submit" value="登录" class="btn btn-primary pull-right login-btn">
+      </div>
+    </div>
+  </form>&#x9;&#x9;
+  <form role="form" ng-if="!isLogin" ng-submit="signup()" w5c-form-validate="vm.validateOptions" novalidate name="Signup" class="form center-block signup w5c-form">
+    <div class="form-group clearfix">
+      <label for="name" class="col-md-4 labelControl">用户名:<i class="fa fa-user-md"></i></label>&#x9;&#x9;&#x9;&#x9;
+      <div class="col-md-8">
+        <input id="name" type="text" placeholder="输入注册的用户名" required ng-minlength="3" ng-maxlength="10" name="name" ng-model="user.name" w5c-unique-check="{url: '/user/find/name?name='+ user.name}" class="form-control">
+      </div>
+    </div>&#x9;&#x9;&#x9;
+    <div class="form-group clearfix">
+      <label for="password" class="col-md-4 labelControl">密码:<i class="fa fa-unlock-alt"></i></label>&#x9;&#x9;&#x9;&#x9;
+      <div class="col-md-8">
+        <input id="password" type="password" ng-model="user.password" ng-minlength="3" ng-maxlength="10" name="password" required placeholder="请输入您的密码" class="form-control">
+      </div>
+    </div>&#x9;&#x9;&#x9;
+    <div class="form-group clearfix">
+      <label for="repassword" class="col-md-4 labelControl">密码验证:<i class="fa fa-unlock-alt"></i></label>&#x9;&#x9;&#x9;&#x9;
+      <div class="col-md-8">
+        <input id="repassword" type="password" placeholder="重复输入密码" w5c-repeat="password" ng-model="user.repeatPassword" name="repeatPassword" required class="form-control">
+      </div>
+    </div>&#x9;&#x9;&#x9;
+    <div class="form-group clearfix">
+      <label for="email" class="col-md-4 labelControl">邮箱:<i class="fa fa-envelope-o"></i></label>&#x9;&#x9;&#x9;&#x9;
+      <div class="col-md-8">
+        <input id="email" type="email" ng-model="user.email" ng-minlength="3" name="email" required placeholder="请输入您的邮箱" class="form-control">
+      </div>
+    </div>&#x9;&#x9;&#x9;
+    <div class="form-group clearfix">
+      <label for="phone" class="col-md-4 labelControl">手机:<i class="fa fa-phone"></i></label>&#x9;&#x9;&#x9;&#x9;
+      <div class="col-md-8">
+        <input id="phone" type="text" ng-model="user.phone" ng-minlength="11" ng-maxlength="12" name="phone" required placeholder="请输入您的手机号码" class="form-control">
+      </div>
+    </div>&#x9;&#x9;&#x9;
+    <div class="clearfix">
+      <button type="submit" class="btn btn-primary pull-right signup-btn">注册</button>
+    </div>&#x9;&#x9;&#x9;
+    <div class="clearfix"><a ng-click="showLogin()" style="margin-top: 8px;" class="pull-right">返回登录页面</a></div>
+  </form>
+</div>

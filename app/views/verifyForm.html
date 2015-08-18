@@ -1,0 +1,32 @@
+<style>
+    .list-group-heading{
+        font-size:24px;
+        font-weight: 300;
+    }
+</style>
+<div role="tabpanel" class="tab-pane active" id="home">
+    <div class="list-group" ng-repeat="answer in answers">
+        <div class="clearfix" style="margin-bottom: 16px;">
+            <h2 class="list-group-heading pull-left">{{answer[0]}}</h2>
+            <a  class="btn btn-danger pull-right btn-sm" style="margin-top: 26px;" ng-click="check($index)">审核全部</a>
+        </div>
+        <div class="shadow">
+            <a ng-href="/#/admin/verify/forms/{{item._id}}" class="list-group-item clearfix" ng-repeat="item in answer" ng-if ="$index > 0">
+                <div class=" pull-left">
+                    <img src="{{item.answerUserId.avator}}" alt="" class="img-circle" style="width: 56px;height: 56px;">
+                </div>
+                <h4 class="list-group-item-text-name pull-left">{{item.answerUserId.name}}</h4>
+                <p class="list-group-item-desc pull-left">
+                    管理员{{item.answerUserId.name}}说：
+                    <br>
+                    我刚刚提交了报表《{{item.fromName}}，赶快审核吧！
+                </p>
+                <p class="list-group-item-time pull-right">
+                    <i class="fa fa-calendar"></i>
+                    {{item.meta.updateAt | date: 'yyyy.MM.dd'}}
+                </p>
+            </a>
+        </div>
+    </div>
+    <!-- <pre>{{answers | json}}</pre> -->
+</div>

@@ -1,0 +1,10 @@
+
+<div class="form-group">
+    <h4 class="control-label">{{field.field_title}}
+        <span class="label label-danger" ng-show="field.field_required && !field.field_value">必填</span>
+    </h4>
+    <label class="radio-inline" ng-repeat="option in field.field_options">
+        <input value="{{option.option_value}}" type="checkbox" ng-true-value="1" ng-false-value="0" ng-required="field.field_required" ng-model="field.field_value" ng-disabled="field.field_disabled" id="{{field.field_id}}" /> &nbsp;
+        <span for="{{field.field_id}}" ng-cloak>{{field.field_title}}</span>
+    </label>
+</div>

@@ -1,0 +1,29 @@
+<div class="list-group shadow">
+    <a href="#" class="list-group-item list-group-title list-group-link">
+        <div class="clearfix">
+            <h4 class="list-group-item-heading pull-left">我的报表审核情况</h4>
+        </div>
+    </a>
+    <a href="#" class="list-group-item" ng-repeat="answer in answers" ng-if="answer.checked > 0">
+        <div class="clearfix">
+            <div class="list-group-item-checked checked pull-left"></div>
+            <div class="list-group-item-text pull-right">
+                <p class="list-group-item-time">{{answer.meta.updateAt | date: 'yyyy.MM.dd HH.mm'}}</p>
+                <p>
+                    <span class="checked-admin">{{answer.createrId.name}}</span> 刚刚审批通过计软院<span>{{answer.answerUserId.name}}</span>的报表《{{answer.formId.form_name}}》
+                </p>
+            </div>
+        </div>
+    </a>
+    <a href="#" class="list-group-item" ng-repeat="answer in answers" ng-if="answer.checked < 0">
+        <div class="clearfix">
+            <div class="list-group-item-checked unchecked pull-left"></div>
+            <div class="list-group-item-text pull-right">
+                <p class="list-group-item-time">{{answer.meta.updateAt | date: 'yyyy.MM.dd HH.mm'}}</p>
+                <p>
+                    <span class="checked-admin">{{answer.createrId.name}}</span> 刚刚退回了计软院<span>{{answer.answerUserId.name}}</span>的报表《{{answer.formId.form_name}}》
+                </p>
+            </div>
+        </div>
+    </a>
+</div>

@@ -1,0 +1,29 @@
+
+<div class="panel panel-primary" style="margin-top:36px;">
+	  <div class="panel-heading">
+			<h3 class="panel-title">{{form.form_name}}</h3>
+	  </div>
+	  <div class="panel-body">
+			<form  role="form"  novalidate name="formNeed" >
+				<div class="form-group" ng-repeat="field in form.form_fields">
+					<div ng-if="field.field_type == 'line'">
+						<h4 class="text-muted">{{field.field_title}}</h4>
+						<hr>
+					</div>
+					<label ng-if="field.field_type !== 'line'" class="control-label">{{field.field_title}}
+						<span class="label label-danger" ng-show="field.field_required && !field.field_value">必填</span>
+					</label>
+					<div class="clearfix">
+						<div class="radio-inline" ng-repeat="option in field.field_options">
+							<input type="radio"  ng-if="field.field_type == 'radio'" ng-model="field.field_value" value="{{option.option_title}}"> {{option.option_title}}
+						</div>
+					</div>
+					<textarea  rows="10" class="form-control" ng-if="field.field_type == 'textarea'" name="textarea" palceholder="在这里填写内容" ng-model="field.field_value" required ng-minlength="2"></textarea>
+					<!-- <input type="text" name="test" required ng-minlength="6"> -->
+					<!-- <pre>{{field | json}}</pre> -->
+				</div>
+				<button type="submit" class="btn btn-primary" ng-click="submit()" ng-disabled="submitted">提交报表</button>
+			</form>
+			<!-- <pre>{{form | json}}</pre> -->
+	  </div>
+</div>

@@ -1,0 +1,43 @@
+
+<div class="alert alert-info" ng-if="message">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    {{message}}
+</div>
+<div role="tabpanel" class="tab-pane" style="margin-top:68px;">
+    <div class="row">
+        <div class="col-md-4" ng-repeat="form in forms">
+            <div class="panel panel-default" ng-if="form.checked">
+                <div class="panel-body">
+                   <a class="panel-edit" href="/#/common/answer/update/{{form._id}}">
+                       <i class="iconfont icon-write"></i>
+                   </a>
+                   <img src="./img/panelImg.png" alt="panelImg">
+                </div>
+                <div class="panel-footer clearfix">
+                    <h4 class="panel-title">{{form.fromName}}</h4>
+                    <p class="pull-left">
+                        <span class="panel-finish"><i class="fa fa-user"></i>{{form.createrId.name}}</span>
+                        <span class="panel-calendar"><i class="fa fa-calendar-o"></i> {{form.meta.updateAt | 
+                        date: 'yyyy-MM-dd hh:mm'}}</span>
+                    </p>
+                </div>
+            </div>
+            <div class="panel panel-default" ng-if="!form.checked">
+                <div class="panel-body">
+                   <a class="panel-edit" href="/#/common/form/need/{{form._id}}">
+                       <i class="iconfont icon-write"></i>
+                   </a>
+                   <img src="./img/panelImg.png" alt="panelImg">
+                </div>
+                <div class="panel-footer clearfix">
+                    <h4 class="panel-title">{{form.form_name}}</h4>
+                    <p class="pull-left">
+                        <span class="panel-finish"><i class="fa fa-user"></i>{{form.form_creater.name}}</span>
+                        <span class="panel-calendar"><i class="fa fa-calendar-o"></i> {{form.meta.updateAt | 
+                        date: 'yyyy-MM-dd hh:mm'}}</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

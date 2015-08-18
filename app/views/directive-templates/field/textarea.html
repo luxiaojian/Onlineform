@@ -1,0 +1,7 @@
+
+<div class="form-group">
+	<label class="control-label">{{field.field_title}}
+		<span ng-show="field.field_required && !field.field_value" class="label label-danger" style="font-size:10px;">* 必填</span>
+	</label>
+	<textarea ng-model="field.field_value" value="{{field.field_value}}" ng-required="field.field_required" ng-disabled="field.field_disabled" cols="10" rows="6" class="form-control" placeholder="在这里填写内容"></textarea>
+</div>

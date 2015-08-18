@@ -1,0 +1,23 @@
+<div role="tabpanel" class="tab-pane"style="margin-top:68px;">
+    <div class="row">
+        <div class="col-md-4" ng-repeat="form in forms">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <a class="panel-edit" href="/#/admin/form/edit/{{form._id}}">
+                        <i class="iconfont icon-write"></i>
+                    </a>
+                   <img src="./img/panelImg.png" alt="panelImg">
+                </div>
+                <div class="panel-footer clearfix">
+                    <h4 class="panel-title">{{form.form_name}}</h4>
+                    <p class="pull-left">
+                        <span class="panel-finish"><i class="fa fa-check-square-o"></i> 255</span>
+                        <span class="panel-calendar"><i class="fa fa-calendar-o"></i> {{form.meta.updateAt | 
+                        date: 'yyyy-MM-dd hh:mm'}}</span>
+                    </p>
+                    <a ng-click="delete($index)" class="pull-right btn btn-info btn-rounded" style="margin-top: -14px;">删除</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

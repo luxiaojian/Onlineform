@@ -1,0 +1,14 @@
+<form ng-submit="form.submit()" role="form" w5c-form-validate="vm.validateOptions" novalidate name="lab" class="form-horizontal w5c-form">
+    <legend>登录页面</legend>
+    <div class="form-group">
+        <label for="signinName">用户名</label>
+        <input id="signinName" ng-model="form.name" type="text" name="name" class="form-control"  ng-minlength="2" ng-maxlength="10" required>
+    </div>
+    <div class="form-group">
+        <label for="signinPassword">密码</label>
+        <input id="signinPassword" ng-model="form.password" type="password" name="password" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">登录</button>
+    </div>
+</form>

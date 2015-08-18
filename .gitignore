@@ -1,0 +1,13 @@
+#node模块
+
+node_modules/
+
+#bower安装的模块
+app/bower_components/
+
+#自动化工具gulp的node模块
+app/node_modules/
+
+.DS_Store
+
+OnlineForm设计稿/

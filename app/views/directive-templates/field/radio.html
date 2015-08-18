@@ -1,0 +1,9 @@
+<div class="form-group">
+    <h4 class="control-label">{{field.field_title}}
+        <span class="label label-danger" ng-show="field.field_required && !field.field_value">必填</span>
+    </h4>
+    <label class="radio-inline" ng-repeat="option in field.field_options">
+        <input type="radio" value="{{option.option_value}}" ng-model="field.field_value" ng-required="field.field_required" ng-disabled="field.field_disabled" /> &nbsp;
+        <span ng-bind="option.option_title"></span>
+    </label>
+</div>

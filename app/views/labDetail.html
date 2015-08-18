@@ -1,0 +1,79 @@
+<div role="tabpanel" class="tab-pane" id="labs" style="margin-top:68px;">
+    <a ng-click="add()" class="btn btn-success btn-lg" style="margin-bottom: 20px;">
+        <i class="fa fa-plus"></i> 添加实验室
+    </a>
+    <div class="panelbody"  ng-show="showMode" style="margin-bottom: 32px;">
+       <form role="form"  w5c-form-validate="vm.validateOptions" novalidate name="lab" class="form-horizontal w5c-form" ng-submit="form.submit()">
+           <h3 class="text-center">添加实验室</h3>
+           <hr>
+           <div class="form-group">
+               <label for="inputTitle" class="col-sm-2 control-label">实验室名称</label>
+               <div class="col-sm-8">
+                   <input id="inputTitle" type="text" class="form-control" ng-model="form.name" name="lab_name" ng-minlength="3" required>
+               </div>
+           </div>
+           <div class="form-group">
+               <label for="inputDesc" class="col-sm-2 control-label">实验室简介</label>
+               <div class="col-sm-8">
+                   <input id="inputDesc" type="text" class="form-control" ng-model="form.desc" name="lab_desc" ng-minlength="5" ng-maxlength="15" required>
+               </div>
+           </div>
+           <div class="form-group">
+               <label  class="control-label col-sm-2">实验室联系电话</label>
+               <div class="col-sm-8">
+                   <input type="text" class="form-control" ng-model="form.phone" name="phone" class="form-control"
+                          placeholder="在这里输入您的手机号">
+               </div>
+           </div>
+           <div class="form-group">
+               <label  class="control-label col-sm-2">添加实验室成员</label>
+               <div class="col-sm-8">
+                   <div isteven-multi-select input-model="members" output-model="form.members"  tick-property="selected" button-label="name" item-label="name" tick-property="ticked" output-properties="name _id">
+                   </div>
+               </div>
+           </div>
+           <!-- <pre>{{form | json}}</pre> -->
+           <div class="form-group">
+               <div class="col-sm-offset-2 col-sm-10">
+                   <button type="submit" class="postMsg btn btn-primary">保存</button>
+               </div>
+           </div>
+       </form> 
+    </div>
+
+    <div class="panelBody">
+        <table class="table  table-hover">
+        	<thead>
+        		<tr>
+        			<th>实验室名称</th>
+        			<th>联系方式</th>
+        			<th>实验室成员</th>
+        			<!-- <th>查看</th>
+        			<th>编辑</th> -->
+        			<th>删除</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr ng-repeat="lab in labs">
+        			<td>{{lab.name}}</td>
+        			<td>{{lab.phone}}</td>
+        			<td>
+        				<code ng-repeat="member in lab.members">{{member.name}}</code>
+        			</td>
+        			<!-- <td>
+        				<a href="/#/lab/{{lab._id}}" class="btn btn-info btn-sm">查看</a>
+        			</td>
+        			<td>
+        				<a href="/#/lab/update/{{lab._id}}" class="btn btn-primary btn-sm">编辑</a>
+        			</td> -->
+        			<td>
+        				<a ng-click="delete($index)" class="btn btn-danger btn-sm">删除</a>
+        			</td>
+        		</tr>
+            <!-- <pre>{{labs | json}}</pre> -->
+        	</tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,39 @@
+<style>
+    .panel-title{
+        font-size: 24px;
+        font-weight: 500;
+    }
+    form{
+        font-size: 16px;
+    }
+    span.label-danger{
+        font-size:10px;
+    }
+</style>
+<div class="panel panel-primary">
+      <div class="panel-heading">
+            <h3 class="panel-title text-center">{{ form.form_name }}</h3>
+      </div>
+      <div class="panel-body" ng-show="!form.submitted">
+            <form name="myForm" id="myForm">
+                <div ng-repeat="field in form.form_fields">
+                    <field-directive field="field">
+
+                    </field-directive>
+                </div>
+            </form>
+      </div>
+      <!-- <div class="panel-footer">
+          <button class="btn btn-success right" type="button" ng-disabled="!myForm.$valid" ng-click="submit()"><i class="icon-edit icon-white"></i> 保存</button>
+          <button class="btn btn-danger right" type="button" ng-click="cancel()"><i class="icon-remove icon-white"></i> 取消</button>
+      </div> -->
+</div>
+<div ng-show="form.submitted">
+    <h3>Submitted Data</h3>
+    <div ng-repeat="field in form.form_fields">
+        Field Title: {{ field.field_title }} <br>
+        Field Value: {{ field.field_value }} <br><br>
+    </div>
+</div>
+
+

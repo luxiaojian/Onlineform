@@ -1,0 +1,12 @@
+
+<div class="form-group">
+	<label class="control-label">{{field.field_title}}
+		<span ng-show="field.field_required && !field.field_value" class="label label-danger" style="font-size:10px;">* 必填</span>
+	</label>
+	<div class="clearfix">
+		<div class="col-md-8">
+			<input type="text" ng-model="field.field_value" data-date-format="mm/dd/yyyy" bs-datepicker  ng-required="field.field_required" ng-disabled="field.field_disabled" class="form-control" placeholder="输入时间和日期">
+		</div>
+	</div>
+	<!-- <button type="button" class="btn btn-primary" data-toggle="datepicker"><i class="glyphicon glyphicon-calendar"> 下拉选择日期</span> </button> -->
+</div>

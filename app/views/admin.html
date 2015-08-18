@@ -1,0 +1,50 @@
+
+<div class="col-md-12">
+    <div class="clearfix">
+        <h3 class="mainTitle pull-left">任务面板</h3>
+        <a ui-sref="main.admin.createform" class="btn btn-warning btn-lg pull-right" style="margin-top:32px; margin-right:12px;">
+            <i class="fa fa-plus"></i> 添加一个新报表
+        </a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs tabToggle" role="tablist" style="margin-right: 24px">
+                        <li role="presentation" class="col-sm-3 navBtn" ui-sref-active="active">
+                            <a ui-sref="main.admin.verifyForm" role="tab">
+                                <span class="mylabel mylabel-info"><i class="iconfont icon-iconfontform"></i></span> 审核填写好的报表
+                            </a>
+                        </li>
+                        <li role="presentation" class="col-sm-3 navBtn" ui-sref-active="active">
+                            <a ui-sref="main.admin.myCreateForm" role="tab">
+                                <span class="mylabel mylabel-success"><i class="iconfont icon-checked"></i></span> 我发布的报表
+                            </a>
+                        </li>
+                        <li role="presentation" class="col-sm-3 navBtn" ui-sref-active="active">
+                            <a ui-sref="main.admin.mangeLabs" role="tab">
+                                <span class="mylabel label-warning"><i class="iconfont icon-lab"></i></span> 管理实验室
+                            </a>
+                        </li>
+                        <li role="presentation" class="col-sm-3 navBtn" ui-sref-active="active">
+                            <a ui-sref="main.admin.mangeUsers" role="tab">
+                                <span class="mylabel label-danger"><i class="iconfont icon-users"></i></span> 管理系统成员
+                            </a>
+                        </li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div ui-view></div>
+                        </div>
+                        <div class="col-md-3" style="margin-top:42px; padding-left: 5px; padding-right: 36px;">
+                            <div ui-view="lastForm"></div>
+                            <div ui-view="formChecked"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,30 @@
+<table class="table table-bordered table-hover table-striped">
+	<thead>
+		<tr>
+			<th>表单名称</th>
+			<th>填写时间</th>
+			<th>审核状态</th>
+			<th>查看</th>
+			<th>删除</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="answer in answers">
+			<td>{{answer.fromName}}</td>
+			<td>{{answer.meta.updateAt | date: 'yyyy-MM-dd hh:mm'}}</td>
+			<td>
+				<span class="text-danger" ng-if="answer.checked < 0">被退回</span>
+				<span class="text-success" ng-if="answer.checked > 0">已过审核</span>
+				<span class="text-info" ng-if="answer.checked == 0">待审核</span>
+			</td>
+			<td>
+				<a href="/#/common/form/finish/{{answer._id}}" class="btn btn-info btn-sm" ng-if="answer.checked > -1">查看</a>
+				<a href="/#/common/answer/update/{{answer._id}}" class="btn btn-danger btn-sm" ng-if="answer.checked < 0">重新填写</a>
+			</td>
+			</td>
+			<td>
+				<a ng-click="del($index)" class="btn btn-danger btn-sm">删除</a>
+			</td>
+		</tr>
+	</tbody>
+</table>

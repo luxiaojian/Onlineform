@@ -1,0 +1,27 @@
+<div class="col-md-9">
+    <div class="clearfix">
+        <h3 class="mainTitle">任务面板</h3>
+    </div>
+    <div role="tabpanel">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabToggle" role="tablist">
+            <li role="presentation" class="col-sm-6 navBtn" ui-sref-active="active">
+                <a ui-sref="main.common.formNeedWrite" aria-controls="home" role="tab">
+                    <span class="mylabel mylabel-info"><i class="iconfont icon-write"></i></span> 需要填写的报表
+                </a>
+            </li>
+            <li role="presentation" class="col-sm-6 navBtn" ui-sref-active="active">
+                <a ui-sref="main.common.formHasfinished" aria-controls="tab" role="tab">
+                    <span class="mylabel mylabel-success"><i class="iconfont icon-published02"></i></span> 我填写好的报表
+                </a>
+            </li>
+        </ul>
+        <div class="tab-content">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+<div class="col-md-3" style="margin-top:86px;">
+    <div ui-view="lastForm"></div>
+    <div ui-view="myFormChecked"></div>
+</div>

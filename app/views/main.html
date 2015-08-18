@@ -1,0 +1,40 @@
+<div class="coverImg">
+    <div class="container">
+        <div class="row">
+            <div class="cover clearfix" ng-controller="headerCtrl">
+                <header class="clearfix header">
+                    <a ui-sref="main"><h1 class="icon-logo logo"></h1></a>
+                    <div class="account pull-right">
+                        <div class="clearfix">
+                            <div class="avator">
+                                <img ng-src="{{user.avator}}" alt="" class="img-circle" style="width: 56px;height: 56px;margin-left: -3px;margin-top: -3px;">
+                            </div>
+                            <div class="accountName">
+                                <p class="nickname">{{user.name}}</p>
+                                <p class="email">{{user.email}}</p>
+                            </div>
+                            <div class="pull-left">
+                                <div class="dropdown">
+                                    <a type="button" data-toggle="dropdown">
+                                        <span class="fa fa-angle-down"></span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li ng-if="show"><a ui-sref="main.common.profile"><i class="fa fa-cogs"></i>详细资料</a>
+                                        </li>
+                                        <li ng-if= "!show"><a ui-sref="main.admin.profile"><i class="fa fa-cogs"></i>详细资料</a></li>
+                                        <li><a ng-click="logout()"><i class="fa fa-sign-out"></i>立即登出</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <div class="container">
+                    <div class="row">
+                        <div ui-view></div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

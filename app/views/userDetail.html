@@ -1,0 +1,86 @@
+
+<a ng-click="add()" class="btn btn-lg btn-info" style="margin-top:32px;"><i class="fa fa-user-plus"></i>添加新成员</a>
+
+<div class="alert alert-success" ng-if="success" style="margin-top: 16px;">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>{{msg}}</strong>
+</div>
+
+<div class="alert alert-danger" ng-if="error" style="margin-top: 16px;">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    <strong>{{msg}}</strong>
+</div>
+<div class="panelbody"  ng-show="showMode" style="margin-top: 16px;">
+   <form role="form" class="form-horizontal">
+       <h3 class="text-center">批量添加用户</h3>
+       <hr>
+       <div class="form-group">
+           <label for="inputTitle" class="col-sm-2 control-label">用户名</label>
+           <div class="col-sm-8" style="height: 35px;">
+               <tags-input ng-model="newUsers" display-property="name" min-length='1'placeholder="添加用户名，回车结束"></tags-input>
+           </div>
+       </div>
+       <div class="form-group">
+           <label  class="control-label col-sm-2">所属实验室</label>
+           <div class="col-sm-8">
+                <!-- <pre>Model: {{selected | json}}</pre> -->
+               <input type="text" class="form-control" ng-model="lab" typeahead="lab for lab in getlabs($viewValue)"  placeholder="在这里输入实验室名字">
+           </div>
+       </div>
+       <div class="form-group">
+           <label  class="control-label col-sm-2">初始密码</label>
+           <div class="col-sm-8">
+               <input type="text" class="form-control" ng-model="password" placeholder="在这里设定初始密码">
+           </div>
+       </div>
+       <div class="form-group">
+           <div class="col-sm-offset-2 col-sm-10">
+               <button type="submit" class="postMsg btn btn-primary" ng-disabled="disable" ng-click="submit()">保存</button>
+               <button class="btn btn-danger" ng-click="close()">关闭</button>
+           </div>
+       </div>
+   </form> 
+</div>
+
+<div role="tabpanel" class="tab-pane" id="users" style="margin-top:36px;">
+    <!-- <a ng-click="add()" class="btn btn-success btn-lg" style="margin-bottom: 20px;">
+        <i class="fa fa-plus"></i> 添加实验室
+    </a>
+ -->
+    <div class="panelBody">
+        <table class="table  table-hover">
+        	<thead>
+        		<tr>
+        			<th>姓名</th>
+        			<th>联系电话</th>
+                    <th>邮箱</th>
+        			<th>所属实验室</th>
+        			<th>角色</th>
+        			<th>编辑</th>
+        			<th>删除</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr ng-repeat="user in users" ng-if="user.name !== 'root'">
+        			<td>{{user.name}}</td>
+        			<td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+        			<td>
+                        <span class="label label-info">{{user.lab[0].name}}</span>
+                    </td>
+        			<td>
+                        <span class="text-danger" ng-if="user.role == 0">实验室管理员</span>         
+                    </td>
+        			<td>
+        				<a href="/#/admin/users/mange/update/{{user._id}}" class="btn btn-primary btn-sm">编辑</a>
+        			</td>
+        			<td>
+        				<a ng-click="delete($index)" class="btn btn-danger btn-sm">删除</a>
+        			</td>
+        		</tr>
+        	</tbody>
+        </table>
+    </div>
+</div>
+
+
