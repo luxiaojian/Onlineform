@@ -12,7 +12,7 @@ var passport = require('passport'),
 var MongoStore = require('connect-mongo')(session); //把session存到数据库需要使用
 var app = express();
 var async = require('async');
-var User = require('./config/models/user')
+var User = require('./server/models/user');
 var userRoles = require('./app/build/js/routingConfig').userRoles;
 //连接数据库
 var dbUrl = 'mongodb://127.0.0.1:27017/onlineform';
@@ -82,7 +82,7 @@ app.set('view engine', 'jade');
 
 app.locals.moment = require('moment');
 //引入路由
-require('./config/route')(app);
+require('./server/route')(app);
 
 app.post('/user/signin',function (req,res,next){
   passport.authenticate('local',function(err,user,info){
@@ -124,7 +124,7 @@ app.post('/user/signin',function (req,res,next){
           })
           // console.log('发送好用户数据');
           cb(null);
-        } 
+        }
         ]);
       // console.log(user);
       // console.log(role);
